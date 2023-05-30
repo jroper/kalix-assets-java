@@ -1,0 +1,387 @@
+<templateSet group="kalix-assets-java">
+  <template name="r1" value="public record Asset($END$) {&#10;&#10;    &#10;}&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="r5" value="public enum AssetStatus {&#10;    NON_EXISTING,&#10;    EXISTING,&#10;    DISPOSED&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="r6" value="public static final Asset NON_EXISTING = new Asset(&quot;&quot;, &quot;&quot;, AssetStatus.NON_EXISTING);" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="r7" value="public Asset register(String description, String location) {&#10;    return new Asset(description, location, AssetStatus.EXISTING);&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="r8" value="public Asset moveTo(String newLocation) {&#10;    return new Asset(description, newLocation, status);&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="r9" value="public Asset dispose() {&#10;    return new Asset(description, location, AssetStatus.DISPOSED);&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="r10" value="public sealed interface Event {&#10;    $END$&#10;}&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="r11" value="$END$&#10;record AssetRegistered(String description, String location) implements Event {}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="r12" value="@kalix.javasdk.annotations.TypeName(&quot;asset-registered&quot;)" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="r13" value="@TypeName(&quot;asset-moved&quot;)&#10;record AssetMoved(String location) implements Event {}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="r14" value="@TypeName(&quot;asset-disposed&quot;)&#10;record AssetDisposed() implements Event {}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="r2" value="String description, $END$" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="r3" value="String location, $END$" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="r4" value="AssetStatus status" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e1" value="public class AssetEntity extends kalix.javasdk.eventsourcedentity.EventSourcedEntity&lt;$END$&gt; {&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e2" value="io.kalix.example.assets.domain.Asset, " description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e3" value="Asset.Event" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e4" value="@kalix.javasdk.annotations.EntityType(&quot;asset&quot;)&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e5" value="@kalix.javasdk.annotations.EntityKey(&quot;assetId&quot;)" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e6" value="@org.springframework.web.bind.annotation.RequestMapping(&quot;/asset/{assetId}&quot;)" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e7" value="@kalix.javasdk.annotations.Acl(allow = @Acl.Matcher(principal = Acl.Principal.INTERNET))" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e8" value="@Override&#10;public Asset emptyState() {&#10;    return Asset.NON_EXISTING;&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e9" value="$END$&#10;public Effect&lt;Asset&gt; getAsset() {&#10;    &#10;}&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e10" value="@org.springframework.web.bind.annotation.GetMapping()" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e11" value="if (currentState().status() != Asset.AssetStatus.EXISTING) {&#10;    $END$&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e12" value="return effects().error(&quot;Asset not found&quot;, kalix.javasdk.StatusCode.ErrorCode.NOT_FOUND);" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e13" value="return effects().reply(currentState());" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e14" value="@org.springframework.web.bind.annotation.PostMapping()&#10;public Effect&lt;Asset&gt; registerAsset(@org.springframework.web.bind.annotation.RequestBody RegisterAsset register) {&#10;    &#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e15" value="public record RegisterAsset(String description, String location) {}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e16" value="if (currentState().status() != Asset.AssetStatus.NON_EXISTING) {&#10;    return effects().error(&quot;Asset already exists&quot;, StatusCode.ErrorCode.CONFLICT);&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e18" value=".emitEvent(new Asset.Event.AssetRegistered(register.description, register.location))" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e19" value=".thenReply(java.util.function.Function.identity(), kalix.javasdk.Metadata.EMPTY.add(&quot;_kalix-http-code&quot;, &quot;204&quot;));" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e20" value="@org.springframework.web.bind.annotation.PutMapping(&quot;/location/{location}&quot;)&#10;public Effect&lt;Asset&gt; moveAsset(@org.springframework.web.bind.annotation.PathVariable String location) {&#10;    $END$&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e21" value="if (currentState().status() != Asset.AssetStatus.EXISTING) {&#10;    return effects().error(&quot;Asset not found&quot;, StatusCode.ErrorCode.NOT_FOUND);&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e22" value="return effects()&#10;        .emitEvent(new Asset.Event.AssetMoved(location))&#10;        .thenReply(Function.identity(), Metadata.EMPTY.add(&quot;_kalix-http-code&quot;, &quot;204&quot;));" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e23" value="@org.springframework.web.bind.annotation.DeleteMapping()&#10;public Effect&lt;Asset&gt; disposeOfAsset() {&#10;    if (currentState().status() != Asset.AssetStatus.EXISTING) {&#10;        return effects().error(&quot;Asset not found&quot;, StatusCode.ErrorCode.NOT_FOUND);&#10;    }&#10;    return effects()&#10;            .emitEvent(new Asset.Event.AssetDisposed())&#10;            .thenReply(Function.identity(), Metadata.EMPTY.add(&quot;_kalix-http-code&quot;, &quot;204&quot;));&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e24" value="$END$&#10;public Asset assetRegistered(Asset.Event.AssetRegistered assetRegistered) {&#10;    &#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e25" value="@kalix.javasdk.annotations.EventHandler" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e26" value="return currentState().register(assetRegistered.description(), assetRegistered.location());" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e27" value="@EventHandler&#10;public Asset assetMoved(Asset.Event.AssetMoved assetMoved) {&#10;    return currentState().moveTo(assetMoved.location());&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e28" value="@EventHandler&#10;public Asset assetDisposed(Asset.Event.AssetDisposed assetDisposed) {&#10;    return currentState().dispose();&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="e17" value="return effects()" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="p1" value="$END$&#10;public class AssetEventPublisher extends kalix.javasdk.action.Action {&#10;    &#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="p2" value="@kalix.javasdk.annotations.Subscribe.EventSourcedEntity(AssetEntity.class)" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="p3" value="@kalix.javasdk.annotations.Publish.Stream(id = &quot;asset-events&quot;)" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="p4" value="@kalix.javasdk.annotations.Acl(allow = @Acl.Matcher(service = &quot;locations&quot;))" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="p5" value="public Effect&lt;io.kalix.example.assets.domain.Asset.Event.AssetRegistered&gt; onEvent(Asset.Event.AssetRegistered registered) {&#10;    $END$&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="p6" value="return effects().reply(registered);" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="p7" value="public Effect&lt;Asset.Event.AssetMoved&gt; onEvent(Asset.Event.AssetMoved moved) {&#10;    return effects().reply(moved);&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="p8" value="public Effect&lt;io.kalix.example.assets.domain.Asset.Event.AssetDisposed&gt; onEvent(Asset.Event.AssetDisposed disposed) {&#10;    return effects().reply(disposed);&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="l1" value="public record Asset(String assetId, String description, String location) {&#10;    $END$&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="l2" value="public static Asset register(String assetId, String description, String location) {&#10;    return new Asset(assetId, description, location);&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="l3" value="public Asset moveTo(String newLocation) {&#10;    return new Asset(assetId, description, newLocation);&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="l4" value="public sealed interface Event {&#10;    @kalix.javasdk.annotations.TypeName(&quot;asset-registered&quot;)&#10;    record AssetRegistered(String description, String location) implements Event {}&#10;    @kalix.javasdk.annotations.TypeName(&quot;asset-moved&quot;)&#10;    record AssetMoved(String location) implements Event {}&#10;    @kalix.javasdk.annotations.TypeName(&quot;asset-disposed&quot;)&#10;    record AssetDisposed() implements Event {}&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v1" value="$END$&#10;public class AssetsByLocation extends kalix.javasdk.view.View&lt;io.kalix.example.locations.domain.Asset&gt; {&#10;    &#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v2" value="@kalix.javasdk.annotations.ViewId(&quot;view_assets_by_location&quot;)" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v3" value="@kalix.javasdk.annotations.Table(&quot;assets_by_location&quot;)" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v4" value="@kalix.javasdk.annotations.Subscribe.Stream(service = &quot;assets&quot;, id = &quot;asset-events&quot;)" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v5" value="public UpdateEffect&lt;Asset&gt; onEvent(Asset.Event.AssetRegistered event) {&#10;    $END$&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v6" value="return effects().updateState($END$);" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v7" value="Asset.register(&#10;    $END$&#10;)" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v8" value="updateContext().eventSubject().orElse(&quot;&quot;),&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v9" value="event.description(),&#10;event.location()" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v10" value="public UpdateEffect&lt;Asset&gt; onEvent(Asset.Event.AssetMoved event) {&#10;    $END$&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v11" value="return effects().updateState(&#10;        $END$&#10;);" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v12" value="viewState()" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v13" value=".moveTo(event.location())" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v15" value="return effects().deleteState();" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v16" value="public record AssetsResponse(java.util.Collection&lt;Asset&gt; assets) { }" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v17" value="$END$&#10;public AssetsResponse getAssets(String location) {&#10;    return null;&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v18" value="@org.springframework.web.bind.annotation.GetMapping(&quot;/location/{location}&quot;)" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v19" value="@kalix.javasdk.annotations.Query(&quot;&quot;&quot;&#10;    $END$&#10;        &quot;&quot;&quot;)" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v20" value="SELECT * as assets" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v21" value="FROM assets_by_location" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v22" value="WHERE location = :location" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v23" value="@kalix.javasdk.annotations.Acl(allow = @Acl.Matcher(principal = Acl.Principal.INTERNET))" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="v14" value="public UpdateEffect&lt;Asset&gt; onEvent(Asset.Event.AssetDisposed event) {&#10;    $END$&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+</templateSet>
